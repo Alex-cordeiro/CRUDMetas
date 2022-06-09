@@ -1,0 +1,55 @@
+<div class="container">
+  <h1>Peças e Serviços</h1>
+  <div id="formularioPecasServicos">
+    <form [formGroup]="formPecasServicos" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="vendedor">Vendedor</label>
+          <select class="form-control" id="vendedor" formControlName="vendedor">
+            <option value="1">Zezinho</option>
+            <option value="2">Luizinho</option>
+            <option value="3">Huguinho</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="empresa">Empresa</label>
+          <select class="form-control" id="empresa" formControlName="empresa">
+            <option value="1">VLB</option>
+            <option value="2">ItBit</option>
+            <option value="3">Interprint</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="filial">Filial</label>
+          <select class="form-control" id="filial" formControlName="filial">
+            <option value="1">Curitiba</option>
+            <option value="2">Belo Horizonte</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label for="setor">Setor</label>
+          <select class="form-control" id="setor" formControlName="setor">
+            <option value="1">RH</option>
+            <option value="2">Vendas</option>
+            <option value="3">TI</option>
+          </select>
+        </div>
+
+        <div class="form-group col-md-3">
+          <label for="dataValidade">Data Validade</label>
+          <input type="date" class="form-control" id="dataValidade" formControlName="dataValidade">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="valor">Valor</label>
+          <input type="text" class="form-control" id="valor" formControlName="valor">
+        </div>
+      </div>
+      <div class="d-flex" id="opcoesForm">
+        <button type="submit" class="btn btn-success d-md-2">Enviar</button>
+      </div>
+
+    </form>
+  </div>
+</div>
