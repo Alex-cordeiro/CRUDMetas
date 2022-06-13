@@ -6,9 +6,8 @@
         <div class="form-group col-md-4">
           <label for="vendedor">Vendedor</label>
           <select class="form-control" id="vendedor" formControlName="vendedor">
-            <option value="1">Zezinho</option>
-            <option value="2">Luizinho</option>
-            <option value="3">Huguinho</option>
+            <option *ngFor="let vendedor of empresas" value="{{vendedor.id}}">{{vendedor.nome}}</option>
+          
           </select>
         </div>
         <div class="form-group col-md-4">

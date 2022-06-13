@@ -23,5 +23,9 @@ namespace CRUDMetasAPI.Model
             Vendedor = vendedor;
             Valor = valor;
         }
+
+        public PecasEServicos()
+        {
+        }
     }
 }

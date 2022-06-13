@@ -6,8 +6,8 @@ namespace CRUDMetasAPI.Model
     {
         public int Id { get; set; }
         public string NomeEmpresa { get; set; }
-        public Filial Filial { get; set; }
-        public List<Filial> Filiais { get; set; }
+        public List<Vendedor> Vendedores { get; set; }
+        public List<Filial> EmpresaFiliais { get; set; }
 
         public Empresa(int id, string nomeEmpresa)
         {

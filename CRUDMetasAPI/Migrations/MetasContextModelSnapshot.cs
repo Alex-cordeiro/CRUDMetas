@@ -26,35 +26,12 @@ namespace CRUDMetasAPI.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("FilialId")
-                        .HasColumnType("int");
-
                     b.Property<string>("NomeEmpresa")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FilialId");
-
                     b.ToTable("Empresas");
-                });
-
-            modelBuilder.Entity("CRUDMetasAPI.Model.EmpresaFilial", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("EmpresaId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("FilialId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("EmpresasFiliais");
                 });
 
             modelBuilder.Entity("CRUDMetasAPI.Model.Filial", b =>
@@ -64,7 +41,7 @@ namespace CRUDMetasAPI.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("EmpresaId")
+                    b.Property<int>("EmpresaId")
                         .HasColumnType("int");
 
                     b.Property<string>("NomeFilial")
@@ -87,10 +64,10 @@ namespace CRUDMetasAPI.Migrations
                     b.Property<DateTime>("DataValidade")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Empresa")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("EmpresaId")
+                        .HasColumnType("int");
 
-                    b.Property<int>("Filial")
+                    b.Property<int>("FilialId")
                         .HasColumnType("int");
 
                     b.Property<int>("Setor")
@@ -104,7 +81,59 @@ namespace CRUDMetasAPI.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("EmpresaId");
+
+                    b.HasIndex("FilialId");
+
                     b.ToTable("PecasEServicos");
+                });
+
+            modelBuilder.Entity("CRUDMetasAPI.Model.Setor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("EmpresaId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nome")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Setores");
+                });
+
+            modelBuilder.Entity("CRUDMetasAPI.Model.Usuario", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Nome")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RefreshToken")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("RefreshTokenExpiryTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Senha")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SobreNome")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Usuarios");
                 });
 
             modelBuilder.Entity("CRUDMetasAPI.Model.Veiculo", b =>
@@ -114,8 +143,11 @@ namespace CRUDMetasAPI.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Empresa")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("DataValidade")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("EmpresaId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Familia")
                         .HasColumnType("nvarchar(max)");
@@ -137,28 +169,94 @@ namespace CRUDMetasAPI.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("EmpresaId");
+
+                    b.HasIndex("FilialId");
+
                     b.ToTable("Veiculos");
                 });
 
-            modelBuilder.Entity("CRUDMetasAPI.Model.Empresa", b =>
+            modelBuilder.Entity("CRUDMetasAPI.Model.Vendedor", b =>
                 {
-                    b.HasOne("CRUDMetasAPI.Model.Filial", "Filial")
-                        .WithMany()
-                        .HasForeignKey("FilialId");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Navigation("Filial");
+                    b.Property<int>("EmpresaId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nome")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmpresaId");
+
+                    b.ToTable("Vendedores");
                 });
 
             modelBuilder.Entity("CRUDMetasAPI.Model.Filial", b =>
                 {
                     b.HasOne("CRUDMetasAPI.Model.Empresa", null)
-                        .WithMany("Filiais")
-                        .HasForeignKey("EmpresaId");
+                        .WithMany("EmpresaFiliais")
+                        .HasForeignKey("EmpresaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("CRUDMetasAPI.Model.PecasEServicos", b =>
+                {
+                    b.HasOne("CRUDMetasAPI.Model.Empresa", "Empresa")
+                        .WithMany()
+                        .HasForeignKey("EmpresaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CRUDMetasAPI.Model.Filial", "Filial")
+                        .WithMany()
+                        .HasForeignKey("FilialId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Empresa");
+
+                    b.Navigation("Filial");
+                });
+
+            modelBuilder.Entity("CRUDMetasAPI.Model.Veiculo", b =>
+                {
+                    b.HasOne("CRUDMetasAPI.Model.Empresa", "Empresa")
+                        .WithMany()
+                        .HasForeignKey("EmpresaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CRUDMetasAPI.Model.Filial", "Filial")
+                        .WithMany()
+                        .HasForeignKey("FilialId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Empresa");
+
+                    b.Navigation("Filial");
+                });
+
+            modelBuilder.Entity("CRUDMetasAPI.Model.Vendedor", b =>
+                {
+                    b.HasOne("CRUDMetasAPI.Model.Empresa", null)
+                        .WithMany("Vendedores")
+                        .HasForeignKey("EmpresaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("CRUDMetasAPI.Model.Empresa", b =>
                 {
-                    b.Navigation("Filiais");
+                    b.Navigation("EmpresaFiliais");
+
+                    b.Navigation("Vendedores");
                 });
 #pragma warning restore 612, 618
         }

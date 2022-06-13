@@ -1,4 +1,6 @@
-﻿namespace CRUDMetasAPI.Model
+﻿using System;
+
+namespace CRUDMetasAPI.Model
 {
     public class Veiculo
     {
@@ -12,5 +14,6 @@
         public string Familia { get; set; }
         public float Quantidade { get; set; }
         public float Valor { get; set; }
+        public DateTime DataValidade { get; set; }
     }
 }

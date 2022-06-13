@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Empresa } from 'src/app/model/empresa.model';
 import { PecasEServicosForm } from 'src/app/model/formularios/pecas-form.model';
+import { Vendedor } from 'src/app/model/vendedor.model';
+import { EmpresaService } from 'src/app/service/empresa.service';
 
 @Component({
   selector: 'app-formulario-pecas-servicos',
@@ -10,13 +13,15 @@ import { PecasEServicosForm } from 'src/app/model/formularios/pecas-form.model';
 export class FormularioPecasServicosComponent implements OnInit {
 
   public formPecasServicos!: FormGroup;
+  public empresas!: Array<Empresa>;
+  public vendedores!: Array<Vendedor>;
 
-
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private empresaService: EmpresaService) { }
 
 
 
   ngOnInit(): void {
+    this.retornaEmpresas();
     this.geraFormulario(new PecasEServicosForm());
   }
 
@@ -33,5 +38,13 @@ export class FormularioPecasServicosComponent implements OnInit {
       dataValidade: new FormControl(pecasEServicosForm.dataValidade),
       valor: new FormControl(pecasEServicosForm.valor)
     })
+  }
+
+
+  public retornaEmpresas(){
+    this.empresaService.retornaEmpresas().subscribe((empresasRetorno: any[]) => {
+      this.empresas = empresasRetorno;
+    });
+
   }
 }
