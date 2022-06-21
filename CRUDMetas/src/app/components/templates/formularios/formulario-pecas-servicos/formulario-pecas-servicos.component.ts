@@ -15,6 +15,13 @@ export class FormularioPecasServicosComponent implements OnInit {
   public formPecasServicos!: FormGroup;
   public empresas!: Array<Empresa>;
   public vendedores!: Array<Vendedor>;
+  public empresaEnvio!: Empresa;
+  public vendedorEnvio!: Vendedor;
+
+
+
+  public empresaSelecionada: string =  '';
+
 
   constructor(private formBuilder: FormBuilder, private empresaService: EmpresaService) { }
 
@@ -45,6 +52,16 @@ export class FormularioPecasServicosComponent implements OnInit {
     this.empresaService.retornaEmpresas().subscribe((empresasRetorno: any[]) => {
       this.empresas = empresasRetorno;
     });
+  }
 
+  public retornaFuncionarioPorEmpresas(idEmpresa: number){
+    this.empresaService.retornaVendedoresPorIdEmpresa(idEmpresa).subscribe((vendedoresRetorno: any[]) => {
+      this.vendedores = vendedoresRetorno;
+    });
+  }
+
+  public selecionaEmpresa(e:any): void{
+    alert(e.target.value);
+    console.log(e.target.value);
   }
 }

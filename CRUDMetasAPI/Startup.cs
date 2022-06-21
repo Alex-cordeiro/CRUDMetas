@@ -53,6 +53,8 @@ namespace CRUDMetasAPI
             })
             .AddJwtBearer(options =>
             {
+                options.RequireHttpsMetadata = false;
+                options.SaveToken = true;
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuer = true,
@@ -86,6 +88,7 @@ namespace CRUDMetasAPI
             services.AddTransient<LoginService, LoginService>();
             services.AddTransient<PecasServicosService, PecasServicosService>();
             services.AddTransient<VeiculosService, VeiculosService>();
+            services.AddTransient<VendedorService, VendedorService>();
 
 
 
@@ -116,6 +119,7 @@ namespace CRUDMetasAPI
                 .AllowCredentials());
 
             app.UseAuthorization();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {

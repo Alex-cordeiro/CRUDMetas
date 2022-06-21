@@ -9,6 +9,9 @@ import { FormularioVeiculoComponent } from './components/templates/formularios/f
 import { FormularioPecasServicosComponent } from './components/templates/formularios/formulario-pecas-servicos/formulario-pecas-servicos.component';
 import { MasterComponent } from './components/master/master.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './components/conta/login/login.component';
+import { AutenticacaoComponent } from './components/conta/autenticacao/autenticacao.component';
+import { httpInterceptorProviders } from './Interceptors';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     HistoricoMetasComponent,
     FormularioVeiculoComponent,
     FormularioPecasServicosComponent,
-    MasterComponent
+    MasterComponent,
+    LoginComponent,
+    AutenticacaoComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +30,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    httpInterceptorProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

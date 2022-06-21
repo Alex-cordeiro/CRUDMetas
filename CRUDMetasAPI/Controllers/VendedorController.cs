@@ -17,11 +17,11 @@ namespace CRUDMetasAPI.Controllers
             _vendedorService = vendedorService;
         }
 
-        // GET: api/<VendedorController>
-        [HttpGet]
-        public IActionResult RetornaEmpresas(int idEmpresa)
+        // GET: api/<VendedorController>/1
+        [HttpGet("{idEmpresa}")]
+        public IActionResult RetornaVendedoresPorEmpresa(int idEmpresa)
         {
-            var vendedores = _vendedorService.FindById(idEmpresa);
+            var vendedores = _vendedorService.FindByIdEmpresa(idEmpresa);
             if (vendedores != null)
                 return Ok(vendedores);
             return NotFound("Não foram encontradas filials cadastradas");
