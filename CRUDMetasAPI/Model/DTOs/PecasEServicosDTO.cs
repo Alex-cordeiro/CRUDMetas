@@ -11,6 +11,9 @@ namespace CRUDMetasAPI.Model.DTOs
         public string Filial { get; set; }
         public int IdSetor { get; set; }
         public string Setor { get; set; }
+        public int IdVendedor { get; set; }
+        public string Vendedor { get; set; }
+        public float Valor { get; set; }
         public DateTime DataValidade { get; set; }
     }
 }

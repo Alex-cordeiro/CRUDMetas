@@ -89,6 +89,8 @@ namespace CRUDMetasAPI
             services.AddTransient<PecasServicosService, PecasServicosService>();
             services.AddTransient<VeiculosService, VeiculosService>();
             services.AddTransient<VendedorService, VendedorService>();
+            services.AddTransient<SetorService, SetorService>();
+            services.AddTransient<FilialService, FilialService>();
 
 
 

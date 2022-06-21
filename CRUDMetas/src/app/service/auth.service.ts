@@ -26,7 +26,6 @@ export class AuthService {
   login(usuarioLogin: UsuarioLogin){
     this.httpClient.post<any>(`${environment.api}/login`, usuarioLogin, this.httpOptions)
       .subscribe((resultReq) => {
-        console.log(resultReq);
         this.loginResponse = {
           authenticated: resultReq.authenticated,
           created: resultReq.created,

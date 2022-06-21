@@ -1,4 +1,5 @@
 ﻿using CRUDMetasAPI.Model;
+using CRUDMetasAPI.Model.DTOs;
 using CRUDMetasAPI.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -40,9 +41,9 @@ namespace CRUDMetasAPI.Controllers
 
         // POST api/<PecasServicosController>
         [HttpPost]
-        public IActionResult InsereNovaPecaServico([FromBody] PecasEServicos pecasEServicos)
+        public IActionResult InsereNovaPecaServico([FromBody] PecasEServicosDTO pecasEServicosdto)
         {
-            var retornoInsert = _pecasService.Insert(pecasEServicos);
+            var retornoInsert = _pecasService.Insert(pecasEServicosdto);
             if (retornoInsert == false)
                 return BadRequest("Não possivel inserir o registro!");
             return Ok("Registro inserido com sucesso!");
@@ -50,12 +51,13 @@ namespace CRUDMetasAPI.Controllers
 
         // PUT api/<PecasServicosController>/5
         [HttpPut]
-        public IActionResult AlteraRegistro([FromBody] PecasEServicos pecasEServicos)
+        public IActionResult AlteraRegistro([FromBody] PecasEServicosDTO pecasEServicosDto)
         {
-            var pecas = pecasEServicos;
-            if (_pecasService.Update(pecas))
+            if (pecasEServicosDto != null)
+                _pecasService.Update(pecasEServicosDto);
                 return Ok("Registro Alterado!");
-            return BadRequest("Não foi possivel alterar o produto selecionado!");
+
+            return BadRequest("Não foi possivel alterar o produto selecionado! Verifique as informações e tente novamente");
         }
     }
 }

@@ -3,6 +3,5 @@ export class PecasEServicosForm{
     public idEmpresa!: number;
     public idFilial!: number;
     public idSetor!: number;
-    public dataValidade!: Date;
     public valor!: number;  
 }

@@ -11,8 +11,8 @@ namespace CRUDMetasAPI.Service
     {
         public IEnumerable<PecasEServicosDTO> FindAll();
         public IEnumerable<PecasEServicosDTO> FindById(int Id);
-        public bool Insert(PecasEServicos pecasEServicos);
-        public bool Update(PecasEServicos pecasEServicos);
+        public bool Insert(PecasEServicosDTO pecasEServicosDTO);
+        public bool Update(PecasEServicosDTO pecasEServicosDTO);
         public PecasEServicos Exists(int Id);
     }
 
@@ -29,7 +29,7 @@ namespace CRUDMetasAPI.Service
             var pecasServicosRetornados = from pecasServicos in _metasContext.PecasEServicos
                                           join empresa in _metasContext.Empresas on pecasServicos.EmpresaId equals empresa.Id
                                           join filial in _metasContext.Filial on pecasServicos.FilialId equals filial.Id
-                                          join setor in _metasContext.Setores on pecasServicos.Setor equals setor.Id
+                                          join setor in _metasContext.Setores on pecasServicos.SetorId equals setor.Id
                                         select new PecasEServicosDTO()
                                         {
                                             Id = pecasServicos.Id,
@@ -50,7 +50,7 @@ namespace CRUDMetasAPI.Service
             var pecasServicosRetornados = from pecasServicos in _metasContext.PecasEServicos
                                           join empresa in _metasContext.Empresas on pecasServicos.EmpresaId equals empresa.Id
                                           join filial in _metasContext.Filial on pecasServicos.FilialId equals filial.Id
-                                          join setor in _metasContext.Setores on pecasServicos.Setor equals setor.Id
+                                          join setor in _metasContext.Setores on pecasServicos.SetorId equals setor.Id
                                           where pecasServicos.Id == Id
                                           select new PecasEServicosDTO()
                                           {
@@ -67,30 +67,35 @@ namespace CRUDMetasAPI.Service
             return pecasServicosRetornados;
         }
 
-        public bool Insert(PecasEServicos pecas)
-        {
-            try
-            {
-                _metasContext.PecasEServicos.Add(pecas);
-                _metasContext.SaveChanges();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
+        public bool Insert(PecasEServicosDTO pecasdto)
+        {    
+            var pecasServicosParaInsercao = new PecasEServicos(pecasdto.IdEmpresa, pecasdto.IdFilial, pecasdto.IdSetor, pecasdto.IdVendedor, pecasdto.Valor);
 
+            if (pecasdto != null)
+            {
+                try
+                {
+                    _metasContext.PecasEServicos.Add(pecasServicosParaInsercao);
+                    _metasContext.SaveChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+            return false;
         }
 
-        public bool Update(PecasEServicos pecas)
+        public bool Update(PecasEServicosDTO pecasdto)
         {
-            int pecasId = Convert.ToInt32(pecas.Id);
+            int pecasId = Convert.ToInt32(pecasdto.Id);
             try
             {
-                var pecasRetornada = Exists(pecas.Id);
+                var pecasRetornada = Exists(pecasdto.Id);
                 if (pecasRetornada != null)
                 {
-                    _metasContext.Entry(pecasRetornada).CurrentValues.SetValues(pecas);
+                    _metasContext.Entry(pecasRetornada).CurrentValues.SetValues(pecasdto);
                     _metasContext.SaveChanges();
                     return true;
                 }

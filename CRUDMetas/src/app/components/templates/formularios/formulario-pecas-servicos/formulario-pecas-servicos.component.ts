@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Empresa } from 'src/app/model/empresa.model';
+import { Filial } from 'src/app/model/filial.model';
 import { PecasEServicosForm } from 'src/app/model/formularios/pecas-form.model';
+import { Setor } from 'src/app/model/setor.model';
 import { Vendedor } from 'src/app/model/vendedor.model';
 import { EmpresaService } from 'src/app/service/empresa.service';
+import { FormularioPecasServicosService } from 'src/app/service/formulario-pecas-servicos.service';
 
 @Component({
   selector: 'app-formulario-pecas-servicos',
@@ -17,13 +20,17 @@ export class FormularioPecasServicosComponent implements OnInit {
   public vendedores!: Array<Vendedor>;
   public empresaEnvio!: Empresa;
   public vendedorEnvio!: Vendedor;
-
+  public setores!: Array<Setor>;
+  public filiais!: Array<Filial>;
 
 
   public empresaSelecionada: string =  '';
+  public formulariopecasServicosEnvio!: PecasEServicosForm;
 
-
-  constructor(private formBuilder: FormBuilder, private empresaService: EmpresaService) { }
+  constructor(private formBuilder: FormBuilder,
+     private pecasServicosService: FormularioPecasServicosService,
+     private empresaService: EmpresaService
+              ) { }
 
 
 
@@ -33,7 +40,17 @@ export class FormularioPecasServicosComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.formPecasServicos.value);
+    if(this.formPecasServicos.valid){
+      this.formulariopecasServicosEnvio = {
+        idEmpresa: this.formPecasServicos.controls['empresa'].value,
+        idFilial: this.formPecasServicos.controls['filial'].value,
+        idSetor: this.formPecasServicos.controls['setor'].value,
+        idVendedor: this.formPecasServicos.controls['vendedor'].value,
+        valor: this.formPecasServicos.controls['valor'].value,
+      }
+    }
+
+    this.pecasServicosService.novoRegistro(this.formulariopecasServicosEnvio);
   }
 
   public geraFormulario(pecasEServicosForm: PecasEServicosForm){
@@ -42,7 +59,6 @@ export class FormularioPecasServicosComponent implements OnInit {
       empresa: new FormControl(pecasEServicosForm.idEmpresa),
       filial: new FormControl(pecasEServicosForm.idFilial),
       setor: new FormControl(pecasEServicosForm.idSetor),
-      dataValidade: new FormControl(pecasEServicosForm.dataValidade),
       valor: new FormControl(pecasEServicosForm.valor)
     })
   }
@@ -54,14 +70,48 @@ export class FormularioPecasServicosComponent implements OnInit {
     });
   }
 
-  public retornaFuncionarioPorEmpresas(idEmpresa: number){
+  public retornaFuncionarioPorEmpresa(idEmpresa: number){
     this.empresaService.retornaVendedoresPorIdEmpresa(idEmpresa).subscribe((vendedoresRetorno: any[]) => {
       this.vendedores = vendedoresRetorno;
     });
   }
 
+  public retornaFilialPorEmpresa(idEmpresa: number){
+    this.empresaService.retornaFiliaisPorIdEmpresa(idEmpresa).subscribe((filiaisRetorno: any[]) => {
+      this.filiais = filiaisRetorno;
+    });
+  }
+
+  public retornaSetorPorEmpresa(idEmpresa: number){
+    this.empresaService.retornaSetoresPorIdEmpresa(idEmpresa).subscribe((setorRetorno: any[]) => {
+      this.setores = setorRetorno;
+    });
+  }
+
   public selecionaEmpresa(e:any): void{
-    alert(e.target.value);
-    console.log(e.target.value);
+    if(e.target.value != null){
+      const empresaId = e.target.value
+      this.retornaFuncionarioPorEmpresa(empresaId);
+      this.retornaFilialPorEmpresa(empresaId);
+      this.retornaSetorPorEmpresa(empresaId);
+    }else {
+      alert("Erro tente novamente");
+    }
+  }
+
+  public selecionaFilial(e:any): void{
+    if(e != null){
+      this.retornaFilialPorEmpresa(e.target.value);
+    }else {
+      alert("Erro tente novamente");
+    }
+  }
+
+  public selecionaSetor(e:any): void{
+    if(e != null){
+      this.retornaSetorPorEmpresa(e.target.value);
+    }else {
+      alert("Erro tente novamente");
+    }
   }
 }

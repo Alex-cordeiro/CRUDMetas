@@ -12,15 +12,14 @@
         <div class="form-group col-md-4">
           <label for="vendedor">Vendedor</label>
           <select class="form-control" id="vendedor" formControlName="vendedor">
-            <option value="2">Luizinho</option>
+            <option *ngFor="let vendedor of vendedores" [value]="vendedor.id">{{vendedor.nome}}</option>
           
           </select>
         </div>
         <div class="form-group col-md-4">
           <label for="filial">Filial</label>
           <select class="form-control" id="filial" formControlName="filial">
-            <option value="1">Curitiba</option>
-            <option value="2">Belo Horizonte</option>
+            <option *ngFor="let filial of filiais" [value]="filial.id">{{filial.nome}}</option>
           </select>
         </div>
       </div>
@@ -28,14 +27,12 @@
         <div class="form-group col-md-3">
           <label for="setor">Setor</label>
           <select class="form-control" id="setor" formControlName="setor">
-            <option value="1">RH</option>
-            <option value="2">Vendas</option>
-            <option value="3">TI</option>
+            <option *ngFor="let setor of setores" [value]="setor.id">{{setor.nome}}</option>
           </select>
         </div>
         <div class="form-group col-md-6">
           <label for="valor">Valor</label>
-          <input type="text" class="form-control" id="valor" formControlName="valor">
+          <input type="text" class="form-control" id="valor" formControlName="valor" placeholder="R$">
         </div>
       </div>
       <div class="d-flex" id="opcoesForm">

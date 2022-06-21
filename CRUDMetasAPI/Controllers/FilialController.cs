@@ -17,14 +17,14 @@ namespace CRUDMetasAPI.Controllers
             _filialService = filialService;
         }
 
-        // GET: api/<FilialController>
-        [HttpGet]
-        public IActionResult RetornaEmpresas(int idEmpresa)
+        // GET: api/<FilialController>/1
+        [HttpGet("{idEmpresa}")]
+        public IActionResult RetornaFiliaisPorIdEmpresa(int idEmpresa)
         {
-            var filiais = _filialService.FindById(idEmpresa);
+            var filiais = _filialService.FindByIdEmpresa(idEmpresa);
             if (filiais != null)
                 return Ok(filiais);
-            return NotFound("Não foram encontradas filials cadastradas");
+            return NotFound("Não foram encontradas filiais cadastradas");
         }
     }
 }
