@@ -12,6 +12,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/conta/login/login.component';
 import { AutenticacaoComponent } from './components/conta/autenticacao/autenticacao.component';
 import { httpInterceptorProviders } from './Interceptors';
+import { RelatorioVeiculosComponent } from './components/templates/formularios/relatorios/relatorio-veiculos/relatorio-veiculos.component';
+import { RelatorioPecasEServicosComponent } from './components/templates/formularios/relatorios/relatorio-pecas-e-servicos/relatorio-pecas-e-servicos.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { httpInterceptorProviders } from './Interceptors';
     FormularioPecasServicosComponent,
     MasterComponent,
     LoginComponent,
-    AutenticacaoComponent
+    AutenticacaoComponent,
+    RelatorioVeiculosComponent,
+    RelatorioPecasEServicosComponent
   ],
   imports: [
     BrowserModule,

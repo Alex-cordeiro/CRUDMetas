@@ -4,14 +4,16 @@ using CRUDMetasAPI.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CRUDMetasAPI.Migrations
 {
     [DbContext(typeof(MetasContext))]
-    partial class MetasContextModelSnapshot : ModelSnapshot
+    [Migration("20220621183417_alteracao_tabela_veiculo")]
+    partial class alteracao_tabela_veiculo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

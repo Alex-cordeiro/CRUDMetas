@@ -30,11 +30,13 @@ namespace CRUDMetasAPI.Service
                                           join empresa in _metasContext.Empresas on pecasServicos.EmpresaId equals empresa.Id
                                           join filial in _metasContext.Filial on pecasServicos.FilialId equals filial.Id
                                           join setor in _metasContext.Setores on pecasServicos.SetorId equals setor.Id
+                                          join vendedor in _metasContext.Vendedores on pecasServicos.VendedorId equals vendedor.Id
                                         select new PecasEServicosDTO()
                                         {
                                             Id = pecasServicos.Id,
                                             IdEmpresa = empresa.Id,
                                             Empresa = empresa.NomeEmpresa,
+                                            Vendedor = vendedor.Nome,
                                             IdFilial = filial.Id,
                                             Filial = filial.NomeFilial,
                                             IdSetor = setor.Id,

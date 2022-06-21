@@ -6,7 +6,7 @@ import { PecasEServicosForm } from 'src/app/model/formularios/pecas-form.model';
 import { Setor } from 'src/app/model/setor.model';
 import { Vendedor } from 'src/app/model/vendedor.model';
 import { EmpresaService } from 'src/app/service/empresa.service';
-import { FormularioPecasServicosService } from 'src/app/service/formulario-pecas-servicos.service';
+import { PecasServicosService } from 'src/app/service/pecas-servicos.service';
 
 @Component({
   selector: 'app-formulario-pecas-servicos',
@@ -28,7 +28,7 @@ export class FormularioPecasServicosComponent implements OnInit {
   public formulariopecasServicosEnvio!: PecasEServicosForm;
 
   constructor(private formBuilder: FormBuilder,
-     private pecasServicosService: FormularioPecasServicosService,
+     private pecasServicosService: PecasServicosService,
      private empresaService: EmpresaService
               ) { }
 

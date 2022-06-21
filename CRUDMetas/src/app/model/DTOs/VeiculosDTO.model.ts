@@ -1,0 +1,15 @@
+export class VeiculoDTO{
+    public idVendedor!: number;
+    public vendedor!: string; 
+    public idEmpresa!: number;
+    public empresa!:string;
+    public idFilial!: number;
+    public filial!:string;
+    public idSetor!: number;
+    public setor!: number;
+    public valor!: number; 
+    public id!: number; 
+    public dataValidade!: Date;
+    public familia!: string;
+    public quantidade!: number;
+}

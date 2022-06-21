@@ -2,28 +2,25 @@
   <h1>Veiculos</h1>
   <div id="formularioVeiculos">
     <form [formGroup]="formVeiculo" (ngSubmit)="onSubmit()">
+      
       <div class="form-row">
         <div class="form-group col-md-4">
-          <label for="vendedor">Vendedor</label>
-          <select class="form-control" id="vendedor" formControlName="vendedor">
-            <option value="1">Zezinho</option>
-            <option value="2">Luizinho</option>
-            <option value="3">Huguinho</option>
+          <label for="empresa">Empresa</label>
+          <select  class="form-control" id="empresa" formControlName="empresa" (change)="selecionaEmpresa($event)">
+            <option *ngFor="let empresa of empresas" [value]="empresa.id">{{empresa.nome}}</option>
           </select>
         </div>
         <div class="form-group col-md-4">
-          <label for="empresa">Empresa</label>
-          <select class="form-control" id="empresa" formControlName="empresa">
-            <option value="1">VLB</option>
-            <option value="2">ItBit</option>
-            <option value="3">Interprint</option>
+          <label for="vendedor">Vendedor</label>
+          <select class="form-control" id="vendedor" formControlName="vendedor">
+            <option *ngFor="let vendedor of vendedores" [value]="vendedor.id">{{vendedor.nome}}</option>
+          
           </select>
         </div>
         <div class="form-group col-md-4">
           <label for="filial">Filial</label>
           <select class="form-control" id="filial" formControlName="filial">
-            <option value="1">Curitiba</option>
-            <option value="2">Belo Horizonte</option>
+            <option *ngFor="let filial of filiais" [value]="filial.id">{{filial.nome}}</option>
           </select>
         </div>
       </div>
@@ -31,16 +28,9 @@
         <div class="form-group col-md-3">
           <label for="setor">Setor</label>
           <select class="form-control" id="setor" formControlName="setor">
-            <option value="1">RH</option>
-            <option value="2">Vendas</option>
-            <option value="3">TI</option>
+            <option *ngFor="let setor of setores" [value]="setor.id">{{setor.nome}}</option>
           </select>
         </div>
-        <div class="form-group col-md-3">
-          <label for="dataValidade">Data Validade</label>
-          <input type="date" class="form-control" id="dataValidade" formControlName="dataValidade">
-        </div>
-
         <div class="form-group col-md-6">
           <label for="valor">Familia</label>
           <input type="text" class="form-control" id="familia" formControlName="familia">
@@ -61,3 +51,6 @@
   </div>
 
 </div>
+
+
+<app-relatorio-veiculos></app-relatorio-veiculos>

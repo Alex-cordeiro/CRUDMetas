@@ -2,19 +2,19 @@
 
 namespace CRUDMetasAPI.Model
 {
-    public class Filial
+    public class Departamento
     {
         public int Id { get; set; }
-        public string NomeFilial { get; set; }
+        public string NomeDepartamento { get; set; }
         public int EmpresaId { get; set; }
 
-        public Filial(int id, string nomeFilial)
+        public Departamento(int id, string nomeDepartamento)
         {
             Id = id;
-            NomeFilial = nomeFilial;
+            NomeDepartamento = nomeDepartamento;
         }
 
-        public Filial()
+        public Departamento()
         {
         }
     }

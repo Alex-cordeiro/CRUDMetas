@@ -26,5 +26,6 @@ namespace CRUDMetasAPI.Controllers
                 return Ok(vendedores);
             return NotFound("Não foram encontradas filials cadastradas");
         }
+
     }
 }

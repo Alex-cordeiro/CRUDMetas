@@ -1,4 +1,5 @@
 ﻿using CRUDMetasAPI.Model;
+using CRUDMetasAPI.Model.DTOs;
 using CRUDMetasAPI.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -40,9 +41,9 @@ namespace CRUDMetasAPI.Controllers
 
         // POST api/<VeiculosController>
         [HttpPost]
-        public IActionResult InsereNovoVeiculo([FromBody] Veiculo veiculo)
+        public IActionResult InsereNovoVeiculo([FromBody] VeiculoDTO veiculodto)
         {
-            var retornoInsert = _veiculosService.Insert(veiculo);
+            var retornoInsert = _veiculosService.Insert(veiculodto);
             if (retornoInsert == false)
                 return BadRequest("Não possivel inserir o registro!");
             return Ok("Registro inserido com sucesso!");
@@ -50,10 +51,9 @@ namespace CRUDMetasAPI.Controllers
 
         // PUT api/<VeiculosController>/5
         [HttpPut]
-        public IActionResult AlteraRegistro([FromBody] Veiculo novoveiculo)
+        public IActionResult AlteraRegistro([FromBody] VeiculoDTO novoveiculoDTO)
         {
-            var veiculo = novoveiculo;
-            if (_veiculosService.Update(veiculo))
+            if (_veiculosService.Update(novoveiculoDTO))
                 return Ok("Registro Alterado!");
             return BadRequest("Não foi possivel alterar o produto selecionado!");
         }

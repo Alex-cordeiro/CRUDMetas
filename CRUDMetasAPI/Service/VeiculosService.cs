@@ -11,8 +11,8 @@ namespace CRUDMetasAPI.Service
     {
         public IEnumerable<VeiculoDTO> FindAll();
         public IEnumerable<VeiculoDTO> FindById(int Id);
-        public bool Insert(Veiculo veiculo);
-        public bool Update(Veiculo veiculo);
+        public bool Insert(VeiculoDTO veiculodto);
+        public bool Update(VeiculoDTO veiculodto);
         public Veiculo Exists(int Id);
     }
 
@@ -29,7 +29,8 @@ namespace CRUDMetasAPI.Service
             var veiculosRetornados = from veiculos in _metasContext.Veiculos
                                           join empresa in _metasContext.Empresas on veiculos.EmpresaId equals empresa.Id
                                           join filial in _metasContext.Filial on veiculos.FilialId equals filial.Id
-                                          join setor in _metasContext.Setores on veiculos.Setor equals setor.Id
+                                          join setor in _metasContext.Setores on veiculos.SetorId equals setor.Id
+                                          join vendedor in _metasContext.Vendedores on veiculos.VendedorId equals vendedor.Id
                                           select new VeiculoDTO()
                                           {
                                               Id = veiculos.Id,
@@ -39,6 +40,8 @@ namespace CRUDMetasAPI.Service
                                               Filial = filial.NomeFilial,
                                               IdSetor = setor.Id,
                                               Setor = setor.Nome,
+                                              IdVendedor = vendedor.Id,
+                                              Vendedor = vendedor.Nome,
                                               DataValidade = veiculos.DataValidade
                                           };
             return veiculosRetornados;
@@ -50,7 +53,8 @@ namespace CRUDMetasAPI.Service
             var veiculoRetornado = from veiculos in _metasContext.Veiculos
                                      join empresa in _metasContext.Empresas on veiculos.EmpresaId equals empresa.Id
                                      join filial in _metasContext.Filial on veiculos.FilialId equals filial.Id
-                                     join setor in _metasContext.Setores on veiculos.Setor equals setor.Id
+                                     join setor in _metasContext.Setores on veiculos.SetorId equals setor.Id
+                                     join vendedor in _metasContext.Vendedores on veiculos.VendedorId equals vendedor.Id
                                      where veiculos.Id == Id
                                      select new VeiculoDTO()
                                      {
@@ -61,36 +65,43 @@ namespace CRUDMetasAPI.Service
                                          Filial = filial.NomeFilial,
                                          IdSetor = setor.Id,
                                          Setor = setor.Nome,
+                                         IdVendedor = vendedor.Id,
+                                         Vendedor = vendedor.Nome,
                                          DataValidade = veiculos.DataValidade
                                      };
 
             return veiculoRetornado;
         }
 
-        public bool Insert(Veiculo veiculo)
+        public bool Insert(VeiculoDTO veiculodto)
         {
-            try
-            {
-                _metasContext.Veiculos.Add(veiculo);
-                _metasContext.SaveChanges();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
+            var veiculoParaInsercao = new Veiculo(veiculodto.IdEmpresa, veiculodto.IdFilial, veiculodto.IdSetor,veiculodto.IdVendedor, veiculodto.Familia, veiculodto.Quantidade, veiculodto.Valor);
 
+            if(veiculoParaInsercao != null)
+            {
+                try
+                {
+                    _metasContext.Veiculos.Add(veiculoParaInsercao);
+                    _metasContext.SaveChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+            return false;
         }
 
-        public bool Update(Veiculo veiculo)
+        public bool Update(VeiculoDTO veiculoDTO)
         {
-            int veiculoId = Convert.ToInt32(veiculo.Id);
+            int veiculoId = Convert.ToInt32(veiculoDTO.Id);
             try
             {
-                var veiculoRetornado = Exists(veiculo.Id);
+                var veiculoRetornado = Exists(veiculoDTO.Id);
                 if (veiculoRetornado != null)
                 {
-                    _metasContext.Entry(veiculoRetornado).CurrentValues.SetValues(veiculo);
+                    _metasContext.Entry(veiculoRetornado).CurrentValues.SetValues(veiculoDTO);
                     _metasContext.SaveChanges();
                     return true;
                 }

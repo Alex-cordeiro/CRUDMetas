@@ -7,11 +7,12 @@ import { Filial } from "../model/filial.model";
 import { Setor } from "../model/setor.model";
 import { PecasEServicosForm } from "../model/formularios/pecas-form.model";
 import { environment } from "src/environments/environment";
+import { PecasEServicosDTO } from "../model/DTOs/PecasEServicosDTO.model";
 
 @Injectable({
     providedIn: 'root'
 })
-export class FormularioPecasServicosService {
+export class PecasServicosService {
     url = 'https://localhost:5001/api'
 
     constructor(private httpclient: HttpClient) {}
@@ -25,6 +26,10 @@ export class FormularioPecasServicosService {
                 .subscribe((retornoNovoRegistro) => {
                     alert(retornoNovoRegistro);
                 })
+    }
+
+    retornaHistoricopecasServicos(): Observable<PecasEServicosDTO[]>{
+       return this.httpclient.get<PecasEServicosDTO[]>(`${environment.api}/PecasServicos`, this.httpOptions) 
     }
     
 }
