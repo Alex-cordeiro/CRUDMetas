@@ -197,3 +197,13 @@ C:\Users\frans\Documents\Projetos_Git\CRUDMetasAPI\obj\Debug\net5.0\CRUDMetasAPI
 C:\Users\frans\Documents\Projetos_Git\CRUDMetasAPI\obj\Debug\net5.0\ref\CRUDMetasAPI.dll
 C:\Users\frans\Documents\Projetos_Git\CRUDMetasAPI\obj\Debug\net5.0\CRUDMetasAPI.pdb
 C:\Users\frans\Documents\Projetos_Git\CRUDMetasAPI\obj\Debug\net5.0\CRUDMetasAPI.genruntimeconfig.cache
+C:\Projetos\Metas\branches\v1\Telemetrix.MetasAPI\obj\Debug\net5.0\CRUDMetasAPI.csproj.AssemblyReference.cache
+C:\Projetos\Metas\branches\v1\Telemetrix.MetasAPI\obj\Debug\net5.0\CRUDMetasAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\Metas\branches\v1\Telemetrix.MetasAPI\obj\Debug\net5.0\CRUDMetasAPI.AssemblyInfoInputs.cache
+C:\Projetos\Metas\branches\v1\Telemetrix.MetasAPI\obj\Debug\net5.0\CRUDMetasAPI.AssemblyInfo.cs
+C:\Projetos\Metas\branches\v1\Telemetrix.MetasAPI\obj\Debug\net5.0\CRUDMetasAPI.csproj.CoreCompileInputs.cache
+C:\Projetos\Metas\branches\v1\Telemetrix.MetasAPI\obj\Debug\net5.0\CRUDMetasAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Projetos\Metas\branches\v1\Telemetrix.MetasAPI\obj\Debug\net5.0\CRUDMetasAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Projetos\Metas\branches\v1\Telemetrix.MetasAPI\obj\Debug\net5.0\CRUDMetasAPI.dll
+C:\Projetos\Metas\branches\v1\Telemetrix.MetasAPI\obj\Debug\net5.0\ref\CRUDMetasAPI.dll
+C:\Projetos\Metas\branches\v1\Telemetrix.MetasAPI\obj\Debug\net5.0\CRUDMetasAPI.pdb

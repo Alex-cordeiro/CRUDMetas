@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace CRUDMetasAPI.Migrations
+namespace Telemetrix.API.Migrations
 {
     public partial class criacao_tabela_usuario : Migration
     {

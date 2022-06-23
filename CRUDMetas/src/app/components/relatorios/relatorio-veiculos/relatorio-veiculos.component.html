@@ -1,0 +1,27 @@
+<div class="container pt-4">
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Vendedor</th>
+            <th scope="col">Empresa</th>
+            <th scope="col">Departamento</th>
+            <th scope="col">Setor</th>
+            <th scope="col">Data Validade</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let veiculo of veiculos">
+            <td>{{veiculo.id}}</td>
+            <td>{{veiculo.vendedor}}</td>
+            <td>{{veiculo.empresa}}</td>
+            <td>{{veiculo.filial}}</td>
+            <td>{{veiculo.setor}}</td>
+            <td>{{veiculo.dataValidade}}</td>
+            <td><button class="btn btn-warning">Editar</button></td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+

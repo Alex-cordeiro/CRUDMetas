@@ -1,4 +1,4 @@
-﻿namespace CRUDMetasAPI.Model.DTOs
+﻿namespace Telemetrix.API.Model.DTOs
 {
     public class UsuarioDTO
     {

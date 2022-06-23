@@ -1,7 +1,10 @@
-export class PecasEServicosForm{
+export class PecasForm{
     public idVendedor!: number;
     public idEmpresa!: number;
-    public idFilial!: number;
+    public idDepartamento!: number;
     public idSetor!: number;
-    public valor!: number;  
+    public valor!: number;
+    public codigo!: string;
+    public tipo!: number;
+    public dataValidade!: Date;  
 }

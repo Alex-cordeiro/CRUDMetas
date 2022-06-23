@@ -1,6 +1,6 @@
-﻿namespace CRUDMetasAPI.Model.DTOs
+﻿namespace Telemetrix.API.Model.DTOs
 {
-    public class FilialDTO
+    public class DepartamentoDTO
     {
         public int Id { get; set; }
         public string Nome { get; set; }

@@ -1,9 +1,9 @@
-﻿using CRUDMetasAPI.Service;
+﻿using Telemetrix.API.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CRUDMetasAPI.Controllers
+namespace Telemetrix.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

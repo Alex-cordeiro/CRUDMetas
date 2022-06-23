@@ -1,4 +1,4 @@
-﻿using CRUDMetasAPI.Configuration;
+﻿using Telemetrix.API.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace CRUDMetasAPI.Service.Implemantations
+namespace Telemetrix.API.Service.Implemantations
 {
     public class TokenService : ITokenService
     {

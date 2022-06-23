@@ -1,28 +1,21 @@
-using CRUDMetasAPI.Configuration;
-using CRUDMetasAPI.Context;
-using CRUDMetasAPI.Service;
-using CRUDMetasAPI.Service.Implemantations;
+using Telemetrix.API.Configuration;
+using Telemetrix.API.Context;
+using Telemetrix.API.Service;
+using Telemetrix.API.Service.Implemantations;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace CRUDMetasAPI
+namespace Telemetrix.API
 {
     public class Startup
     {
@@ -86,17 +79,18 @@ namespace CRUDMetasAPI
             services.AddTransient<AutenticacaoService, AutenticacaoService>();
             services.AddTransient<TokenService, TokenService>();
             services.AddTransient<LoginService, LoginService>();
-            services.AddTransient<PecasServicosService, PecasServicosService>();
-            services.AddTransient<VeiculosService, VeiculosService>();
+            services.AddTransient<ServicoService, ServicoService>();
+            services.AddTransient<VeiculoService, VeiculoService>();
             services.AddTransient<VendedorService, VendedorService>();
             services.AddTransient<SetorService, SetorService>();
-            services.AddTransient<FilialService, FilialService>();
+            services.AddTransient<DepartamentoService, DepartamentoService>();
+            services.AddTransient<PecaService, PecaService>();
 
 
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "CRUDMetasAPI", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Telemetrix.API", Version = "v1" });
             });
         }
 
@@ -107,7 +101,7 @@ namespace CRUDMetasAPI
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CRUDMetasAPI v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Telemetrix.API v1"));
             }
 
             app.UseHttpsRedirection();

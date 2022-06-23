@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IsXd0fB1kMeShaK62r9UB750KWBF7nADFSQLKB6qVJ+1lbUrYa3pOMcfeqg3p7p5sHFYfTGdu+tnPBmwP1PaMQ==",
+  "dgSpecHash": "LtIpKw4Wv3G5ZEDZq7N+cKKEfuxZMWooN2j+d+aTJw/NeJuEqOQmS4L+PMD6k//E0SGXCsQO0zLqSTelXWfv4Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\frans\\Documents\\Projetos_Git\\CRUDMetasAPI\\CRUDMetasAPI.csproj",
+  "projectFilePath": "C:\\Projetos\\Metas\\branches\\v1\\Telemetrix.MetasAPI\\Telemetrix.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\frans\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\frans\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.17\\microsoft.aspnetcore.authentication.jwtbearer.5.0.17.nupkg.sha512",

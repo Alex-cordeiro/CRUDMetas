@@ -1,11 +1,11 @@
-﻿using CRUDMetasAPI.Context;
-using CRUDMetasAPI.Model.DTOs;
+﻿using Telemetrix.API.Context;
+using Telemetrix.API.Model.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CRUDMetasAPI.Service
+namespace Telemetrix.API.Service
 {
     public interface ISetorService
     {

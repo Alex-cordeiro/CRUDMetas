@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace CRUDMetasAPI.Migrations
+namespace Telemetrix.API.Migrations
 {
     public partial class alteracao_pecas_e_servicos : Migration
     {

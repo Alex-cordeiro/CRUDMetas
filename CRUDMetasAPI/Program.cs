@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CRUDMetasAPI
+namespace Telemetrix.API
 {
     public class Program
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CRUDMetasAPI.Model.DTOs
+namespace Telemetrix.API.Model.DTOs
 {
     public class SetorDTO
     {

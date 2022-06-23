@@ -10,7 +10,7 @@ export class MasterComponent implements OnInit {
 
   constructor() { }
   public tiposMetas: Array<TipoMeta> = [];
-  public teste!: string;
+  public parametroEditar!: string;
   ngOnInit(): void {
     this.criaOpcoesTipo();
   }
@@ -19,8 +19,8 @@ export class MasterComponent implements OnInit {
  
   //METODO DE MOCK RETIRAR APÓS O DESENVOLVIMENTO DO BACKEND!!!
   public criaOpcoesTipo(){
-    this.tiposMetas.push(new TipoMeta(1,'Peças e Serviços', 'pecas-servicos'));
+    this.tiposMetas.push(new TipoMeta(1,'Peças', 'pecas'));
     this.tiposMetas.push(new TipoMeta(2,'Veiculos', 'veiculos'));
+    this.tiposMetas.push(new TipoMeta(3,'Serviços', 'servicos'));
   }
-
 }

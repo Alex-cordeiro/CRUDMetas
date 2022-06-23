@@ -1,0 +1,26 @@
+<p>relatorio-servicos works!</p><div class="container pt-4">
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Vendedor</th>
+            <th scope="col">Empresa</th>
+            <th scope="col">Departamento</th>
+            <th scope="col">Setor</th>
+            <th scope="col">Data Validade</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let servico of servicos">
+            <td>{{servico.id}}</td>
+            <td>{{servico.vendedor}}</td>
+            <td>{{servico.empresa}}</td>
+            <td>{{servico.filial}}</td>
+            <td>{{servico.setor}}</td>
+            <td>{{servico.dataValidade}}</td>
+            <td><button class="btn btn-warning">Editar</button></td>
+          </tr>
+        </tbody>
+      </table>
+</div>

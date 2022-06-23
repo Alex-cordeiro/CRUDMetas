@@ -1,4 +1,4 @@
-﻿namespace CRUDMetasAPI.Configuration
+﻿namespace Telemetrix.API.Configuration
 {
     public class TokenConfigurations
     {

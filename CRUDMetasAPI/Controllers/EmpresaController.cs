@@ -1,13 +1,13 @@
-﻿using CRUDMetasAPI.Service;
+﻿using Telemetrix.API.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
-namespace CRUDMetasAPI.Controllers
+namespace Telemetrix.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize("Bearer")]
+    
     public class EmpresaController : ControllerBase
     {
         private readonly EmpresaService _empresaService;

@@ -7,16 +7,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["CRUDMetasAPI.csproj", "."]
-RUN dotnet restore "./CRUDMetasAPI.csproj"
+COPY ["Telemetrix.API.csproj", "."]
+RUN dotnet restore "./Telemetrix.API.csproj"
 COPY . .
 WORKDIR "/src/."
-RUN dotnet build "CRUDMetasAPI.csproj" -c Release -o /app/build
+RUN dotnet build "Telemetrix.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "CRUDMetasAPI.csproj" -c Release -o /app/publish
+RUN dotnet publish "Telemetrix.API.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "CRUDMetasAPI.dll"]
+ENTRYPOINT ["dotnet", "Telemetrix.API.dll"]

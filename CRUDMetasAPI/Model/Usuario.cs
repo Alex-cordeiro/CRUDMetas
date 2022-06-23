@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CRUDMetasAPI.Model
+namespace Telemetrix.API.Model
 {
     public class Usuario
     {

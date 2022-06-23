@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Security.Claims;
 
-namespace CRUDMetasAPI.Service
+namespace Telemetrix.API.Service
 {
     public interface ITokenService
     {

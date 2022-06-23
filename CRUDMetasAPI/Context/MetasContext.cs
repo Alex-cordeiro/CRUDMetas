@@ -1,8 +1,8 @@
-﻿using CRUDMetasAPI.Model;
+﻿using Telemetrix.API.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace CRUDMetasAPI.Context
+namespace Telemetrix.API.Context
 {
     public class MetasContext : DbContext
     {
@@ -17,8 +17,9 @@ namespace CRUDMetasAPI.Context
         }
 
         public DbSet<Empresa> Empresas { get; set; }
-        public DbSet<Filial> Filial { get; set; }
-        public DbSet<PecasEServicos> PecasEServicos { get; set; }
+        public DbSet<Departamento> Departamentos { get; set; }
+        public DbSet<Servico> Servicos { get; set; }
+        public DbSet<Peca> Pecas { get; set; }
         public DbSet<Veiculo> Veiculos { get; set; }
         public DbSet<Vendedor> Vendedores { get; set; }
         public DbSet<Setor> Setores { get; set; }

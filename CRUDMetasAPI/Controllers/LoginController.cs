@@ -1,9 +1,9 @@
-﻿using CRUDMetasAPI.Model.DTOs;
-using CRUDMetasAPI.Service;
+﻿using Telemetrix.API.Model.DTOs;
+using Telemetrix.API.Service;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
-namespace CRUDMetasAPI.Controllers
+namespace Telemetrix.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

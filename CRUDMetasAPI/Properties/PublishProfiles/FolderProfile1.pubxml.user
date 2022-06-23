@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\IIS_Deploy\APIMetas</_PublishTargetUrl>
+    <History>True|2022-06-23T13:41:53.7300322Z;True|2022-06-23T10:29:16.9805723-03:00;False|2022-06-23T10:27:45.6810495-03:00;False|2022-06-23T10:27:27.7800748-03:00;False|2022-06-23T10:26:54.0559046-03:00;</History>
+  </PropertyGroup>
+</Project>

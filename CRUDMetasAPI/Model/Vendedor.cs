@@ -1,4 +1,4 @@
-﻿namespace CRUDMetasAPI.Model
+﻿namespace Telemetrix.API.Model
 {
     public class Vendedor
     {

@@ -1,13 +1,13 @@
-﻿using CRUDMetasAPI.Configuration;
-using CRUDMetasAPI.Context;
-using CRUDMetasAPI.Model.DTOs;
-using CRUDMetasAPI.Service.Implemantations;
+﻿using Telemetrix.API.Configuration;
+using Telemetrix.API.Context;
+using Telemetrix.API.Model.DTOs;
+using Telemetrix.API.Service.Implemantations;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 
-namespace CRUDMetasAPI.Service
+namespace Telemetrix.API.Service
 {
     public interface ILoginService
     {

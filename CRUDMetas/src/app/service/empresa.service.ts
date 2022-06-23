@@ -3,7 +3,7 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import { Observable } from "rxjs";
 import { Empresa } from "../model/empresa.model";
 import { Vendedor } from "../model/vendedor.model";
-import { Filial } from "../model/filial.model";
+import { Departamento } from "../model/departamento.model";
 import { Setor } from "../model/setor.model";
 
 @Injectable({
@@ -26,12 +26,12 @@ export class EmpresaService {
         return this.httpclient.get<Vendedor[]>(this.url + '/vendedor/' + idEmpresa)
     }
 
-    retornaFiliaisPorIdEmpresa(idEmpresa: number): Observable<Filial[]> {
-        return this.httpclient.get<Vendedor[]>(this.url + '/filial/' + idEmpresa)
+    retornaDepartamentosPorIdEmpresa(idEmpresa: number): Observable<Departamento[]> {
+        return this.httpclient.get<Departamento[]>(this.url + '/departamento/' + idEmpresa)
     }
 
     retornaSetoresPorIdEmpresa(idEmpresa: number): Observable<Setor[]> {
-        return this.httpclient.get<Vendedor[]>(this.url + '/setor/' + idEmpresa)
+        return this.httpclient.get<Setor[]>(this.url + '/setor/' + idEmpresa)
     }
     
 }

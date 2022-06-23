@@ -6310,11 +6310,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\frans\\Documents\\Projetos_Git\\CRUDMetasAPI\\CRUDMetasAPI.csproj",
-      "projectName": "CRUDMetasAPI",
-      "projectPath": "C:\\Users\\frans\\Documents\\Projetos_Git\\CRUDMetasAPI\\CRUDMetasAPI.csproj",
+      "projectUniqueName": "C:\\Projetos\\Metas\\branches\\v1\\Telemetrix.MetasAPI\\Telemetrix.API.csproj",
+      "projectName": "Telemetrix.API",
+      "projectPath": "C:\\Projetos\\Metas\\branches\\v1\\Telemetrix.MetasAPI\\Telemetrix.API.csproj",
       "packagesPath": "C:\\Users\\frans\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\frans\\Documents\\Projetos_Git\\CRUDMetasAPI\\obj\\",
+      "outputPath": "C:\\Projetos\\Metas\\branches\\v1\\Telemetrix.MetasAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\frans\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,12 +1,12 @@
-﻿using CRUDMetasAPI.Context;
-using CRUDMetasAPI.Model;
-using CRUDMetasAPI.Model.DTOs;
+﻿using Telemetrix.API.Context;
+using Telemetrix.API.Model;
+using Telemetrix.API.Model.DTOs;
 using System;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace CRUDMetasAPI.Service
+namespace Telemetrix.API.Service
 {
     public interface IAutenticacaoService
     {

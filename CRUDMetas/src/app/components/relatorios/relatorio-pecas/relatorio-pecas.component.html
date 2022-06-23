@@ -1,0 +1,31 @@
+<div class="container pt-4">
+    <table class="table">
+        <form [formGroup]="formEditar">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Vendedor</th>
+            <th scope="col">Empresa</th>
+            <th scope="col">Departamento</th>
+            <th scope="col">Setor</th>
+            <th scope="col">Data Validade</th>
+            <th scope="col">Valor</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+          <tbody>
+            <tr *ngFor="let peca of pecas">
+              <td>{{peca.id}}</td>
+              <td>{{peca.vendedor}}</td>
+              <td>{{peca.empresa}}</td>
+              <td>{{peca.departamento}}</td>
+              <td>{{peca.setor}}</td>
+              <td>{{peca.dataValidade | date:'dd/M/yyyy'}}</td>
+              <!-- <td><input type="text" value="{{peca.valor}}" formControlName="valorPeca"></td> -->
+              <td><button (submit)="editaPeca(peca.id)" class="btn btn-warning">Editar</button></td>
+            </tr>
+          </tbody>
+        </form>
+      </table>
+</div>
+

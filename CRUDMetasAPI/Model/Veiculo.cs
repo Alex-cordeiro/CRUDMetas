@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CRUDMetasAPI.Model
+namespace Telemetrix.API.Model
 {
     public class Veiculo
     {
@@ -19,7 +19,7 @@ namespace CRUDMetasAPI.Model
         {
         }
 
-        public Veiculo(int idEmpresa, int idFilial, int idSetor, int idVendedor, string familia, int quantidade, float valor)
+        public Veiculo(int idEmpresa, int idFilial, int idSetor, int idVendedor, string familia, int quantidade, float valor, DateTime dataValidade)
         {
             EmpresaId = idEmpresa;
             FilialId = idFilial;
@@ -28,13 +28,12 @@ namespace CRUDMetasAPI.Model
             Familia = familia;
             Quantidade = quantidade;
             Valor = valor;
-            DataValidade = InsereDataPeriodoMeta();
+            DataValidade = InsereDataPeriodoMeta(dataValidade);
         }
 
-        private DateTime InsereDataPeriodoMeta()
+        private DateTime InsereDataPeriodoMeta(DateTime dataValidade)
         {
-            DateTime data = DateTime.Today;
-            var ultimoDiaDoMes = new DateTime(data.Year, data.Month, DateTime.DaysInMonth(data.Year, data.Month));
+            var ultimoDiaDoMes = new DateTime(dataValidade.Year, dataValidade.Month, DateTime.DaysInMonth(dataValidade.Year, dataValidade.Month));
             return ultimoDiaDoMes;
         }
     }

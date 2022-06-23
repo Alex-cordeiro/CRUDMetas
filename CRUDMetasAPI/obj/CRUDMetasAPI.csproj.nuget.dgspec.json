@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\frans\\Documents\\Projetos_Git\\CRUDMetasAPI\\CRUDMetasAPI.csproj": {}
+    "C:\\Projetos\\Metas\\branches\\v1\\Telemetrix.MetasAPI\\CRUDMetasAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\frans\\Documents\\Projetos_Git\\CRUDMetasAPI\\CRUDMetasAPI.csproj": {
+    "C:\\Projetos\\Metas\\branches\\v1\\Telemetrix.MetasAPI\\CRUDMetasAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\frans\\Documents\\Projetos_Git\\CRUDMetasAPI\\CRUDMetasAPI.csproj",
+        "projectUniqueName": "C:\\Projetos\\Metas\\branches\\v1\\Telemetrix.MetasAPI\\CRUDMetasAPI.csproj",
         "projectName": "CRUDMetasAPI",
-        "projectPath": "C:\\Users\\frans\\Documents\\Projetos_Git\\CRUDMetasAPI\\CRUDMetasAPI.csproj",
+        "projectPath": "C:\\Projetos\\Metas\\branches\\v1\\Telemetrix.MetasAPI\\CRUDMetasAPI.csproj",
         "packagesPath": "C:\\Users\\frans\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\frans\\Documents\\Projetos_Git\\CRUDMetasAPI\\obj\\",
+        "outputPath": "C:\\Projetos\\Metas\\branches\\v1\\Telemetrix.MetasAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\frans\\AppData\\Roaming\\NuGet\\NuGet.Config",

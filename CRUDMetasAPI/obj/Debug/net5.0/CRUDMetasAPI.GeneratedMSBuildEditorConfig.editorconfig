@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = CRUDMetasAPI
-build_property.ProjectDir = C:\Users\frans\Documents\Projetos_Git\CRUDMetasAPI\
+build_property.ProjectDir = C:\Projetos\Metas\branches\v1\Telemetrix.MetasAPI\
