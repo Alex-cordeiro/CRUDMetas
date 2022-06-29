@@ -1,0 +1,61 @@
+<div class="container">
+  <h1>Peças</h1>
+  <div id="formularioPecasServicos">
+    <form [formGroup]="formPecas" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="empresa">Empresa</label>
+          <select  class="form-control" id="empresa" formControlName="empresa" (change)="selecionaEmpresa($event)">
+            <option *ngFor="let empresa of empresas" [value]="empresa.id">{{empresa.nome}}</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="departamento">Departamento</label>
+          <select class="form-control" id="departamento" formControlName="departamento">
+            <option *ngFor="let departamento of departamentos" [value]="departamento.id">{{departamento.nome}}</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="vendedor">Vendedor</label>
+          <select class="form-control" id="vendedor" formControlName="vendedor">
+            <option *ngFor="let vendedor of vendedores" [value]="vendedor.id">{{vendedor.nome}}</option>
+          </select>
+        </div>
+        <div class="form-group col-md-3">
+          <label for="codigo">Código</label>
+          <input type="text" class="form-control" id="codigo" formControlName="codigo">
+        </div>
+        <div class="form-group col-md-3">
+          <label for="setor">Setor</label>
+          <select class="form-control" id="setor" formControlName="setor">
+            <option *ngFor="let setor of setores" [value]="setor.id">{{setor.nome}}</option>
+          </select>
+        </div>
+        <div class="form-group col-md-3">
+          <label for="setor">Mês/Ano</label>
+          <input class="form-control" type="month" formControlName="dataValidade">
+        </div>
+        <div class="form-group col-md-3">
+          <label for="setor">Tipo</label>
+          <select class="form-control" id="tipo" formControlName="tipo">
+            <option *ngFor="let tipoentrada of tiposEntradaMeta" [value]="tipoentrada.id">{{tipoentrada.descricao}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+          <label for="setor">CPF</label>   
+            <input type="text" class="form-control" id="valor" formControlName="cpf">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="valor">Valor</label>
+          <input type="text" class="form-control" id="valor" formControlName="valor">
+        </div>
+      </div>
+      <div class="d-flex" id="opcoesForm">
+        <button type="submit" class="btn btn-success d-md-2">Enviar</button>
+      </div>
+    </form>
+  </div>
+</div>
+<app-relatorio-pecas></app-relatorio-pecas>

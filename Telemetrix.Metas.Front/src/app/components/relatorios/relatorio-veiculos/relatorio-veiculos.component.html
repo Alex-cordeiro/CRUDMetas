@@ -1,0 +1,31 @@
+<div class="container pt-4">
+  <form>
+  <table class="table table-sm">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Vendedor</th>
+          <th scope="col">Empresa</th>
+          <th scope="col">Departamento</th>
+          <th scope="col">Setor</th>
+          <th scope="col">Data Validade</th>
+          <th scope="col">Tipo</th>
+          <th scope="col">Valor</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+        <tbody>
+          <tr *ngFor="let veiculo of veiculos">
+            <td>{{veiculo.id}}</td>
+            <td>{{veiculo.vendedor}}</td>
+            <td>{{veiculo.departamento}}</td>
+            <td>{{veiculo.setor}}</td>
+            <td>{{veiculo.dataValidade | date:'dd/M/yyyy'}}</td>
+            <td>{{veiculo.descricaoTipo}}</td>
+            <td><input type="text" value="{{veiculo.valor}}" (keyup)="recebeValorEditado($event)"></td>
+            <td><button (click)="editaPeca(veiculo.id)" class="btn btn-warning">Editar</button></td>
+          </tr>
+        </tbody>
+    </table>
+  </form>
+</div>

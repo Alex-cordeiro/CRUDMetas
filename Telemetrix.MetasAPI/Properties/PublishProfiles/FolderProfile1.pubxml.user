@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Projetos\Metas\branches\v1\Telemetrix.MetasAPI\bin\Release</_PublishTargetUrl>
+    <History>True|2022-06-24T17:24:48.7164262Z;True|2022-06-24T13:51:24.5086362-03:00;True|2022-06-24T13:38:58.1563274-03:00;True|2022-06-24T13:38:15.4963291-03:00;True|2022-06-24T13:11:03.7282172-03:00;True|2022-06-24T13:10:13.8520959-03:00;True|2022-06-24T11:55:07.8781147-03:00;True|2022-06-24T11:54:06.7253148-03:00;True|2022-06-24T11:30:51.7318444-03:00;True|2022-06-23T10:41:53.7300322-03:00;True|2022-06-23T10:29:16.9805723-03:00;False|2022-06-23T10:27:45.6810495-03:00;False|2022-06-23T10:27:27.7800748-03:00;False|2022-06-23T10:26:54.0559046-03:00;</History>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="SQLServer">
+      <Value>Server=200.169.68.106\desenv,60843%3bDatabase=CRUDMetasAPI%3bUser Id=telemetrix%3bPassword=P1t0c0o6o9%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>
